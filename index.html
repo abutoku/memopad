@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MOKUSEN</title>
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+
+  <header>
+    <div id = "header_contents">
+      <h1>MOKUMOKUSENGEN</h1>
+    </div>
+    <div class="content">
+      <p id="timer">03:00:00</p>
+    </div>
+    <div class="button" id="buttonBox">
+      <button id="start">START</button>
+    </div>
+  </header>
+
+  <section>
+    <div id="todo_wrapper">
+      <input type="text" id="todo">
+      <button id="add">add</button>
+      <button id="clear">clear</button>
+      <div id ="list"></div>
+    </div>
+  </section>
+ 
+  
+
+  <!-- jquery読み込み -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  
+  <!-- JavaScriptの記述 -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
