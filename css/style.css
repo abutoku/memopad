@@ -1,29 +1,48 @@
 @charset "utf-8";
 
+/* グーグルフォント読み込み */
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Lobster&display=swap');
+
 /* 全体のスタイル */
 * {
   box-sizing: border-box;
 }
 
-body {
-  background-image: url(../img/bg01.jpg);
-  background-size: cover;
+/*ボタンのスタイルのリセット*/
+
+button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        appearance: none;
 }
 
+/* body {
+  background-image: url(../img/bg01.jpg);
+  background-size: cover;
+} */
+
 #header_contents {
-  background: black;
+  background: rgba(0,0,0,.6);
   color: white;  
+}
+
+#header_contents h1 {
+  font-family: 'Lobster', cursive;
 }
 
 /* タイマーのスタイル */
 .content {
-    background-color: black;
+    background-color: rgba(0,0,0,.6);
     color:white;
     width:350px;
-    margin:0 auto 30px;
+    margin-bottom:20px;
     padding:15px;
     text-align: center;
     font-size:30px;
+    
 }
 .content p{
     margin:0;
@@ -36,7 +55,7 @@ text-align: center;
 }
 
 .buttonbutton{/* div class="buttonbutton"の時のレイアウト　*/
-    width:100%;
+width:100%;
 text-align: center;
 }
 
@@ -60,16 +79,31 @@ button button{/* div class="button"の時のレイアウト　*/
     box-shadow:3px 3px 6px rgba(0,0,0,.4);
 }
 
+/* コンテンツ */
+
+#contents {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* メモのスタイル */
+
+#memo_wrapper{
+  width: 500px;
+}
+
 /* TO DOのスタイル */
 
 #todo_wrapper {
-  background-color: rgba(0,0,0,.4);
+  background-color: rgba(0,0,0,.6);
   width: 400px;
   height: 600px;
   padding: 20px;
 }
 
-#list p {
+
+.txt {
   border: 1px solid gray;
   background: white;
 }
