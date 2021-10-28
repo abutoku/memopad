@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>MOKUSEN</title>
-
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/vnd.microsoft.icon">
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
@@ -14,52 +14,83 @@
 </head>
 <body>
 
+  <!-- モーダル -->
+  <div id="modal" class="none">
+    <div id="modal_back">
+      <img src="./img/tiger2.PNG" alt="たけし" >
+    </div>
+  </div>
+
+<!-- ヘッダー -->
   <header>
+
     <div id = "header_contents">
       <h1>Mokumokusengen</h1>
+      <img src="./img/tiger.png" id="tiger" class="fadeout" alt="タイガー">
     </div>
-    <div class="content">
-      <p id="timer">03:00:00</p>
+
+
+  </header><!-- ヘッダーここまで -->
+
+  <section id ="timer_section"><!-- timer -->
+
+    <div class="timer_content">
+      <p id="timer">00:00</p>
     </div>
+
     <div class="button" id="buttonBox">
+      <input type="text" id="minute">MIN
       <button id="start">START</button>
     </div>
-  </header>
 
+  </section><!-- timerここまで -->
+
+
+  <!-- メイン -->
   <main>
     <div id="contents">
       
+      <!-- memoセクション -->
       <section>
         <div id="memo_wrapper">
-          <button id="add_memo">memo</button>
-          <div id="memo"></div>
-        </div>
-      </section>
-
-      <section>
-        <div id="todo_wrapper">
-          <input type="text" id="todo">
-          <button id="add" class="fas fa-plus"></button>
-          <button id="clear">clear</button>
-          <div id="list">
-            <div class="txt">
-              <input type="checkbox" class="check"></i>
-              テスト
-              <button class="close fas fa-trash-alt"></button></div>
-            
-            
+          <button id="savememo_btn">save</button>
+          <button id="clearmemo_btn">clear</button>
+          <div id="memo" class ="move">
+            <textarea class="memo_txt" id="area_1"></textarea>
+            <textarea class="memo_txt" id="area_2"></textarea>
+            <textarea class="memo_txt" id="area_3"></textarea>
           </div>
         </div>
-      </section> 
+      </section><!-- memoセクションここまで -->
+
+      <section><!-- todoセクション -->
+        <div id="todo_wrapper">
+          
+          <div id="input_contents">
+            <input type="text" id="todo"><!--入力欄-->
+  
+            <button id="add_btn" class="fas fa-plus"></button><!--追加ボタン-->
+            <button id="clear_btn">clear</button><!--削除ボタン-->
+          </div>
+
+          <div id="todo_list"><!--追加したtodoが表示される場所-->
+           <div class="todo_txt">
+              <label><input type="checkbox" class="check">テスト</label>             
+              <button class="delete_btn fas fa-trash-alt"></button>
+            </div>
+          </div>
+
+        </div> <!--todo_wrapperここまで-->
+      </section> <!-- todoセクションここまで -->
 
     </div><!--id="contents"ここまで-->
-
-  </main>
+  </main><!-- メインここまで -->
  
-  
-
   <!-- jquery読み込み -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!--jQuery UI-->
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 
   
   <!-- JavaScriptの記述 -->
