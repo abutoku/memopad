@@ -33,7 +33,7 @@ $(function () {
 
 
 
-// タイマー（もらいもの）
+// タイマー
 let point;
 let sec;
 let seconds;
@@ -111,8 +111,8 @@ let addZero = function (value) {
   }
   return value;
 }
-
 ///////////////タイマー（ここまで）////////////////
+
 
 ///////////////todoリストを作ろう//////////////////
 
@@ -152,8 +152,13 @@ $(document).on('click', '.delete_btn', function () { //deleteボタンが押さ�
   console.log(jsonData); //JSONをコンソールに出す
   localStorage.setItem("memo_todo", jsonData); //キーmemo_todoでローカルストレージに保存
 
-  $('#todo_list').empty();//画面一旦消して
+  //$('#todo_list').empty();//画面一旦消して
+
+  //↑これはいらなかったー
+  
+
   $('#todo_list').html(todos);//配列を再表示
+  //↑htmlを置き換える
 
 });
 
