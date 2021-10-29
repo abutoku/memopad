@@ -1,20 +1,13 @@
 @charset "utf-8";
 
 /* グーグルフォント読み込み */
-@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Lobster&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Molle:ital@1&family=Roboto+Slab:wght@900&display=swap');
 
 /* 全体のスタイル */
 * {
   box-sizing: border-box;
   margin: 0;
 }
-
-
-
-
-
 
 /*ボタンのスタイルのリセット*/
 
@@ -36,13 +29,16 @@ header {
   color: white; 
 }
 
+
+
 #header_contents {
   display: flex;
   justify-content: space-between;
 }
 
 #header_contents h1 {
-  font-family: 'Lobster', cursive; 
+  font-family: 'Roboto Slab', serif;
+  margin-left: 12px;
 }
 
 #tiger {
@@ -67,7 +63,7 @@ header {
 }
 
 
-/* タイマーのスタイル */
+/*///////// Timerのスタイル /////////////*/
 #timer_section {
   height: 100px;
   background: #000;
@@ -80,8 +76,7 @@ header {
 .timer_content {   
     width:350px;
     padding:15px;
-    font-size:48px; 
-      
+    font-size:48px;       
 }
 
 .timer_content p{
@@ -89,42 +84,23 @@ header {
     padding:0;
 }
 
-.button{/* div class="button"の時のレイアウト*/
+.start_button{
 text-align: center;
 }
 
-.buttonbutton{/* div class="buttonbutton"の時のレイアウト*/
+.stop_button{
 text-align: center;
 }
 
-button button{/* div class="button"の時のレイアウト*/
-    border:none;
-    width: 80px;
-    padding:10px 0 10px 0;
-    border-radius: 6px;
-    color:white;
-    background-color: rgba(2, 61, 255, .8);
-    
+#timesave_btn,
+#start {
+  color:#000; 
+  background-color: #fff;
+  margin-left: 12px;
+  height: 24px;
+  width: 72px;
+  font-size: 16px; 
 }
-
-.buttonbutton button{/* div class="buttonbutton"の時のレイアウト*/
-    border:none;
-    width: 80px;
-    padding:10px 0 10px 0;
-    border-radius: 6px;
-    color:black;
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-/* コンテンツ */
-
-#contents {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-/*///////// Timerのスタイル /////////////*/
 
 #minute {
   height: 36px;
@@ -134,11 +110,13 @@ button button{/* div class="button"の時のレイアウト*/
   font-size: 24px;
 }
 
-#start {
-  background-color: white;
-  margin-left: 12px;
-  height: 24px;
-  width: 72px;
+
+/* コンテンツ */
+
+#contents {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* ///////////メモのスタイル ////////////*/
@@ -159,7 +137,7 @@ button button{/* div class="button"の時のレイアウト*/
 }
 
 textarea {
-  width: 480px;
+  width: 720px;
   min-height: 160px;
   margin-left: 24px;
   font-size: 20px;
@@ -191,6 +169,7 @@ textarea {
   height: 24px;
   width: 24px;
   margin-right: 8px;
+  margin-left:12px;
   background-color: yellow;
   
 }
@@ -211,6 +190,7 @@ textarea {
   width: 48px;
   height: 48px;
   margin: 0;
+  
 }
 
 /* クリアボタン */
@@ -237,6 +217,3 @@ textarea {
   color: #fff;
   background-color:#000;
 }
-
-
-

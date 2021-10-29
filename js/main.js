@@ -18,6 +18,20 @@ $('#modal_back').on('click', function () {
   $('#modal').addClass('none');
 });
 
+$(function () {
+  if ($("#todo").val().length == 0) {
+    $("#add_btn").prop("disabled", true);
+  }
+  $("#todo").on("keydown keyup keypress change", function () {
+    if ($(this).val().length < 2) {
+      $("#add_btn").prop("disabled", true);
+    } else {
+      $("#add_btn").prop("disabled", false);
+    }
+  });
+});
+
+
 
 // タイマー（もらいもの）
 let point;
@@ -29,23 +43,31 @@ let start; //スタートした時間
 let now;
 let time;
 let id;
-let set;
+let set; //入力を受け取る変数
+let limit;
+let limit_min;
 
 document.getElementById('start').addEventListener('click', function () {
   if (document.getElementById('start').innerHTML === 'START') {//スタートボタンを押したとき
     start = new Date();//スタートした時間を代入
+    set = $('#minute').val();
+    $('#minute').val("");//入力欄を空欄に
+    console.log(set);
+    limit = set * 60;
+    limit_min = set - 1;
+
     id = setInterval(goTimer, 10);  //0.1秒ごとにgoTimerを繰り返す
     document.getElementById('start').innerHTML = 'STOP'; //ボタンの文字ストップに変更
 
-    document.getElementById('buttonBox').classList.remove('button'); //ボタンのクラスを変更
-    document.getElementById('buttonBox').classList.add('buttonbutton'); //ボタンのクラスを変更
+    document.getElementById('buttonBox').classList.remove('start_button'); //ボタンのクラスを変更
+    document.getElementById('buttonBox').classList.add('stop_button'); //ボタンのクラスを変更
   } else {
     clearInterval(id); //ストップボタンを押したとき
     document.getElementById('start').innerHTML = 'START'; //画面表示をリセット
     document.getElementById('timer').innerHTML = '00:00'; //画面表示をリセット
 
-    document.getElementById('buttonBox').classList.remove('buttonbutton');//ボタンのクラスを変更
-    document.getElementById('buttonBox').classList.add('button');//ボタンのクラスを変更
+    document.getElementById('buttonBox').classList.remove('stop_button');//ボタンのクラスを変更
+    document.getElementById('buttonBox').classList.add('start_button');//ボタンのクラスを変更
   }
 });
 
@@ -59,27 +81,29 @@ let goTimer = function () {
   hour = Math.floor(min / 60); //時
   seconds = Math.floor(time / 1000); //秒
 
-  if (seconds < 180) {
+  if (seconds < limit) {
     point = 9 - (point - sec * 10);
     sec = 59 - (sec - min * 60);
-    min = 2 - (min - hour * 60);
+    min = limit_min - (min - hour * 60);
 
     point = addZero(point);
     sec = addZero(sec);
     min = addZero(min);
 
-    document.getElementById('timer').innerHTML = min + ':' + sec; 
+    document.getElementById('timer').innerHTML = min + ':' + sec;
+
   } else {
     alert('Time up');
     clearInterval(id);
     document.getElementById('timer').innerHTML = '00:00';//画面表示をリセット
     document.getElementById('start').innerHTML = 'START';//画面表示をリセット
 
-    document.getElementById('buttonBox').classList.remove('buttonbutton');//ボタンのクラスを変更
-    document.getElementById('buttonBox').classList.add('button');//ボタンのクラスを変更
+    document.getElementById('buttonBox').classList.remove('stop_button');//ボタンのクラスを変更
+    document.getElementById('buttonBox').classList.add('start_button');//ボタンのクラスを変更
   }
 
 }
+
 //一桁だったら頭に0を足す関数
 let addZero = function (value) {
   if (value < 10) {
@@ -87,6 +111,7 @@ let addZero = function (value) {
   }
   return value;
 }
+
 ///////////////タイマー（ここまで）////////////////
 
 ///////////////todoリストを作ろう//////////////////
@@ -113,8 +138,7 @@ $('#add_btn').on('click', function () {
   localStorage.setItem("memo_todo", jsonData);//LocalStorage に情報を保存．
 
   //ページに表示
-  $('#todo_list').html(todos);//htmlに変換 
-
+  $('#todo_list').html(todos);//htmlに変換  
 });
 
 
@@ -169,8 +193,7 @@ $(document).on('click', '.check', function () {
 
 });
 
-////////////////////memoを作ろう///////////////////////
-
+////////////////////memoを作ろう//////////////////////
 //textareaを保存
 $('#savememo_btn').on('click', function () { //saveボタンをクリックしたら
 
@@ -181,6 +204,7 @@ $('#savememo_btn').on('click', function () { //saveボタンをクリックし�
     txt_3: $('#area_3').val(),
   };
 
+  console.log(txt_area);
   const jsonData = JSON.stringify(txt_area);
   console.log(jsonData);
   localStorage.setItem("memo_txt", jsonData);
@@ -208,6 +232,9 @@ if (localStorage.getItem('memo_txt')) {
   $('#area_3').val(data.txt_3);//dateを画面に表示
 
   }
+
+
+
 
 
 
