@@ -1,6 +1,6 @@
 # Mokumokusengen
 
-## DOMO
+## DEMO
 [https://abutoku.github.io/memopad/](https://abutoku.github.io/memopad/)
 
 ## プロダクトの紹介
